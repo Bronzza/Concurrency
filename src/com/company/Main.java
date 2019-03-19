@@ -48,6 +48,7 @@ public class Main {
         }
         scheduledService.shutdown();
         int fibonachi = 15;
-        System.out.println("Number Fibonachi of " + fibonachi + " is: " + forkJoinPool.invoke(new FibonachiRecur(15)));
+        System.out.println("Number Fibonachi of " + fibonachi + " is: " +
+                forkJoinPool.invoke(new FibonachiRecur(15)));
     }
 }
