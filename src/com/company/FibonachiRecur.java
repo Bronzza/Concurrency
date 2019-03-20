@@ -3,7 +3,7 @@ package com.company;
 import java.util.concurrent.RecursiveTask;
 
 public class FibonachiRecur extends RecursiveTask<Integer> {
-    final int n;
+    private final int n;
 
     public FibonachiRecur(int n) {
         this.n = n;

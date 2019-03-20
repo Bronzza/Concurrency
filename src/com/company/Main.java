@@ -13,16 +13,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
+    public static final Integer SOMENUMB = 10;
 
     public static void main(String[] args) {
-        Integer integer = 10;
         ExecutorService executor = Executors.newFixedThreadPool(2);
         ScheduledExecutorService scheduledService = Executors.newScheduledThreadPool(5);
         List<Future<Integer>> list = new ArrayList<>();
         List<ScheduledFuture<Integer>> listSchedeled = new ArrayList<>();
         ForkJoinPool forkJoinPool = new ForkJoinPool(4);
 
-        Callable<Integer> callable = new ConcurrentCounter(integer, 50);
+        Callable<Integer> callable = new ConcurrentCounter(SOMENUMB, 50);
         for (int i = 0; i < 10; i++) {
             Future<Integer> future = executor.submit(callable);
             ScheduledFuture<Integer> scheduledFuture = scheduledService.schedule(callable, 3, TimeUnit.SECONDS);
